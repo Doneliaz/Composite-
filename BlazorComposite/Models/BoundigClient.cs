@@ -1,3 +1,0 @@
-namespace BlazorComposite.Models 
-
-}
