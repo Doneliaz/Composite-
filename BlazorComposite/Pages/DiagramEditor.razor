@@ -1,0 +1,155 @@
+@page "/diagram-editor"
+@using BlazorComposite.Models // Asegúrate de que el namespace sea correcto
+@inject IJSRuntime JSRuntime
+
+<h3>Editor de Diagramas UML (Composite Pattern)</h3>
+
+<p>
+    Haz clic en el lienzo para añadir formas o en una forma existente para arrastrarla.
+</p>
+
+<div class="toolbar">
+    <button class="btn btn-primary" @onclick="() => CurrentTool = ToolType.Select">Seleccionar</button>
+    <button class="btn btn-info" @onclick="() => CurrentTool = ToolType.AddRectangle">Añadir Rectángulo</button>
+    <button class="btn btn-info" @onclick="() => CurrentTool = ToolType.AddCircle">Añadir Círculo</button>
+    <button class="btn btn-success" @onclick="LoadClassDiagramTemplate">Cargar Plantilla de Clase</button>
+</div>
+
+<div class="diagram-canvas-container"
+     @onmousedown="OnCanvasMouseDown"
+     @onmousemove="OnCanvasMouseMove"
+     @onmouseup="OnCanvasMouseUp"
+     style="border: 2px solid black; width: 800px; height: 500px; background-color: #f8f8f8;">
+
+    <svg width="100%" height="100%" @ref="svgElement">
+        @foreach (var shape in CanvasShapes)
+        {
+            @shape.Draw()
+        }
+    </svg>
+</div>
+
+@code {
+    public enum ToolType { Select, AddRectangle, AddCircle }
+    public ToolType CurrentTool { get; set; } = ToolType.Select;
+
+    private List<IShape> CanvasShapes = new List<IShape>();
+    private IShape? SelectedShape { get; set; }
+    private ElementReference svgElement;
+
+    // Para el arrastre desde Blazor
+    private double _offsetX, _offsetY;
+    private bool _isDraggingShape = false;
+
+    // DotNetObjectReference para llamar a métodos de C# desde JS
+    private DotNetObjectReference<DiagramEditor>? _dotNetHelper;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Crear una instancia de DotNetObjectReference
+        _dotNetHelper = DotNetObjectReference.Create(this);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Opcional: inicializar una plantilla por defecto o simplemente dejarlo vacío
+            // LoadClassDiagramTemplate();
+        }
+
+        // Después de cada renderizado, si hay formas, aseguramos que el JS pueda interactuar con ellas
+        if (CurrentTool == ToolType.Select)
+        {
+            foreach (var shape in CanvasShapes)
+            {
+                // Habilitar arrastre para cada forma
+                // Pasamos el ID de la forma y el DotNetObjectReference para que JS pueda llamar a C#
+                await JSRuntime.InvokeVoidAsync("diagramInterop.enableDragging", shape.Id, _dotNetHelper);
+            }
+        }
+    }
+
+    // Método que JavaScript llamará para mover una forma
+    [JSInvokable]
+    public void MoveShape(string shapeId, double dx, double dy)
+    {
+        var shapeToMove = CanvasShapes.FirstOrDefault(s => s.Id == shapeId);
+        if (shapeToMove != null)
+        {
+            shapeToMove.Move(dx, dy);
+            // Esto es crucial para que Blazor sepa que debe re-renderizar
+            StateHasChanged();
+        }
+    }
+
+// ... (resto de tu código @code) ...
+
+    // --- MÉTODO CORREGIDO ---
+    // 1. Añade 'async'
+    private async void OnCanvasMouseDown(MouseEventArgs e)
+    {
+        if (e.Button == 0) // Botón izquierdo del ratón
+        {
+            // 2. Llama a JS para obtener los límites
+            var bounds = await JSRuntime.InvokeAsync<BoundingClientRect>("diagramInterop.getBoundingClientRect", svgElement);
+
+            // 3. Comprueba si la llamada a JS falló
+            if (bounds == null) return; 
+
+            // 4. Calcula las coordenadas usando 'bounds.Left' y 'bounds.Top'
+            double svgX = e.ClientX - bounds.Left;
+            double svgY = e.ClientY - bounds.Top;
+            
+            // --- FIN DE LA CORRECCIÓN ---
+
+            if (CurrentTool == ToolType.AddRectangle)
+            {
+                CanvasShapes.Add(new Rectangle(svgX, svgY) { Fill = "lightgray" });
+                StateHasChanged();
+            }
+            else if (CurrentTool == ToolType.AddCircle)
+            {
+                CanvasShapes.Add(new Circle(svgX, svgY) { Fill = "lightblue" });
+                StateHasChanged();
+            }
+        }
+    }
+
+
+    private void OnCanvasMouseMove(MouseEventArgs e) { /* Podrías usarlo para dibujar nuevas formas */ }
+    private void OnCanvasMouseUp(MouseEventArgs e) { /* Limpiar estados de dibujo */ }
+
+
+    // *** Implementación de la Plantilla de Clase UML ***
+    private void LoadClassDiagramTemplate()
+    {
+        CanvasShapes.Clear(); // Limpia el lienzo actual
+
+        // Creamos los elementos individuales (Hojas)
+        var userClass = new Rectangle(100, 100) { Width = 120, Height = 80, Fill = "white" };
+        var orderClass = new Rectangle(300, 100) { Width = 120, Height = 80, Fill = "white" };
+        var productClass = new Rectangle(500, 100) { Width = 120, Height = 80, Fill = "white" };
+
+        
+        // Añadimos las formas al lienzo
+        CanvasShapes.Add(userClass);
+        CanvasShapes.Add(orderClass);
+        CanvasShapes.Add(productClass);
+
+        // Opcional: Agruparlas en un ShapeGroup
+        var templateGroup = new ShapeGroup();
+        templateGroup.Add(userClass);
+        templateGroup.Add(orderClass);
+        templateGroup.Add(productClass);
+        // CanvasShapes.Add(templateGroup); // Si agregas el grupo, asegúrate de no agregar las individuales también.
+
+        StateHasChanged();
+    }
+
+    // Limpia el DotNetObjectReference cuando el componente se destruye
+    public void Dispose()
+    {
+        _dotNetHelper?.Dispose();
+    }
+}
