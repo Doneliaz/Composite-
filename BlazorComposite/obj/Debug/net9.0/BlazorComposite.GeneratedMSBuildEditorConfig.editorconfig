@@ -13,45 +13,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = BlazorComposite
 build_property.RootNamespace = BlazorComposite
-build_property.ProjectDir = C:\Users\dogue\projects\Composite\BlazorComposite\BlazorComposite\
+build_property.ProjectDir = C:\Users\zS23017372\Proyectos\TecnologiasParaConsDeSoftware\Composite\Composite-\BlazorComposite\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\dogue\projects\Composite\BlazorComposite\BlazorComposite
+build_property.MSBuildProjectDirectory = C:\Users\zS23017372\Proyectos\TecnologiasParaConsDeSoftware\Composite\Composite-\BlazorComposite
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/App.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/Pages/Counter.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/Pages/DiagramEditor.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/Pages/DiagramEditor.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlhZ3JhbUVkaXRvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/Pages/Home.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/Pages/Weather.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/_Imports.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/Layout/MainLayout.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-33idgh61le
 
-[C:/Users/dogue/projects/Composite/BlazorComposite/BlazorComposite/Layout/NavMenu.razor]
+[C:/Users/zS23017372/Proyectos/TecnologiasParaConsDeSoftware/Composite/Composite-/BlazorComposite/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ar08zg378d

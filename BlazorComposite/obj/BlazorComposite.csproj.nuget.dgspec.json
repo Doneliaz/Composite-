@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dogue\\projects\\Composite\\BlazorComposite\\BlazorComposite\\BlazorComposite.csproj": {}
+    "C:\\Users\\zS23017372\\Proyectos\\TecnologiasParaConsDeSoftware\\Composite\\Composite-\\BlazorComposite\\BlazorComposite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dogue\\projects\\Composite\\BlazorComposite\\BlazorComposite\\BlazorComposite.csproj": {
+    "C:\\Users\\zS23017372\\Proyectos\\TecnologiasParaConsDeSoftware\\Composite\\Composite-\\BlazorComposite\\BlazorComposite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dogue\\projects\\Composite\\BlazorComposite\\BlazorComposite\\BlazorComposite.csproj",
+        "projectUniqueName": "C:\\Users\\zS23017372\\Proyectos\\TecnologiasParaConsDeSoftware\\Composite\\Composite-\\BlazorComposite\\BlazorComposite.csproj",
         "projectName": "BlazorComposite",
-        "projectPath": "C:\\Users\\dogue\\projects\\Composite\\BlazorComposite\\BlazorComposite\\BlazorComposite.csproj",
-        "packagesPath": "C:\\Users\\dogue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dogue\\projects\\Composite\\BlazorComposite\\BlazorComposite\\obj\\",
+        "projectPath": "C:\\Users\\zS23017372\\Proyectos\\TecnologiasParaConsDeSoftware\\Composite\\Composite-\\BlazorComposite\\BlazorComposite.csproj",
+        "packagesPath": "C:\\Users\\zS23017372\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zS23017372\\Proyectos\\TecnologiasParaConsDeSoftware\\Composite\\Composite-\\BlazorComposite\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dogue\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\zS23017372\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,13 +56,13 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.10, )",
+              "version": "[9.0.8, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.10, )",
+              "version": "[9.0.8, )",
               "autoReferenced": true
             }
           },
@@ -86,7 +80,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[9.0.10, 9.0.10]"
+              "version": "[9.0.8, 9.0.8]"
             }
           ],
           "frameworkReferences": {
@@ -94,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
